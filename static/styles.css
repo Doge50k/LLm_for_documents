@@ -1,38 +1,220 @@
-body {
-    font-family: Arial, sans-serif;
+/* Base */
+:root {
+    --primary-color: #3f51b5;
+    --primary-hover: #2c3e99;
+    --secondary-color: #f50057;
+    --secondary-hover: #c41162;
+    --light-bg: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --text-light: #666666;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
 }
 
-.container {
-    width: 50%;
-    margin: auto;
-    padding: 20px;
-}
-
-h1, h2 {
-    text-align: center;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-label, input, button {
-    margin: 10px 0;
-}
-
-input {
-    padding: 10px;
-    width: 100%;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-button {
-    padding: 10px 20px;
-    cursor: pointer;
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-p {
+/* Container and Layout */
+.app-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.app-header {
     text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.app-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.tagline {
+    font-size: 16px;
+    color: var(--text-light);
+}
+
+.app-content {
+    margin-bottom: 40px;
+}
+
+/* Form Elements */
+.query-section {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.query-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+label {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+input {
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    width: 100%;
+    transition: border 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+.btn {
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-hover);
+}
+
+/* Results Section */
+.results-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.query-card, .response-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.query-card h2, .response-card h2 {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.response-card h2 {
+    background-color: var(--secondary-color);
+}
+
+.content-box {
+    padding: 20px;
+    min-height: 80px;
+}
+
+.response-content {
+    line-height: 1.8;
+    min-height: 150px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 15px;
+    }
+    
+    .app-header {
+        padding: 20px 0;
+    }
+    
+    .app-header h1 {
+        font-size: 24px;
+    }
+    
+    .query-section {
+        padding: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 12px 16px;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
 }
